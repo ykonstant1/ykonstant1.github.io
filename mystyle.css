@@ -4,7 +4,7 @@ html {
 }
 body {
   margin: 0 auto;
-  max-width: 50em;
+  max-width: 45em;
   /*padding-left: calc(20rem / 14);
   padding-right: calc(20rem / 14);*/
   padding-top: 20px;
@@ -12,48 +12,22 @@ body {
   hyphens: auto;
   line-height: 1.2;
   font-weight: normal;
-  font-size: 18px;
   box-sizing: border-box;
   text-align: justify;
+  font-size: 18px;
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
   font-family: "Droid", Sans-Serif;
 }
-@media (max-width: 600px) {
-  body {
-	font-size: 0.9em;
-	padding: 12px;
-  }
-  h1 {
-	font-size: 1.8em;
-  }
-}
-@media print {
-  html {
-	background-color: white;
-  }
-  body {
-	background-color: transparent;
-	color: black;
-	font-size: 12pt;
-  }
-  p, h2, h3 {
-	orphans: 3;
-	widows: 3;
-  }
-  h2, h3, h4 {
-	page-break-after: avoid;
-  }
-}
 p {
   margin: 1em 0;
 }
 a {
-  color: #1a1a1a;
+  color: #0000EE;
 }
 a:visited {
-  color: #1a1a1a;
+  color: #551A8B;
 }
 img {
   max-width: 100%;
@@ -64,6 +38,7 @@ svg {
 }
 h1, h2, h3, h4, h5, h6 {
   margin-top: 1.4em;
+  color: #00685B;
 }
 h5, h6 {
   font-size: 1em;
@@ -149,8 +124,3 @@ header {
 #TOC a:not(:hover) {
   text-decoration: none;
 }
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
