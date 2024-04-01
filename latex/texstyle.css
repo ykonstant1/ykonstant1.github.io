@@ -5,12 +5,11 @@ html {
 body {
   margin: 0 auto;
   max-width: 45em;
-  /*padding-left: calc(20rem / 14);
-  padding-right: calc(20rem / 14);*/
   background-color: #fffff0;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
   hyphens: auto;
   line-height: 1.2;
   font-weight: normal;
