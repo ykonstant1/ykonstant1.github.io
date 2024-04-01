@@ -1,14 +1,17 @@
 html {
   color: #1a1a1a;
-  background-color: #fffff0;
+  background-color: #fffff2;
 }
 body {
   margin: 0 auto;
   max-width: 45em;
   /*padding-left: calc(20rem / 14);
   padding-right: calc(20rem / 14);*/
-  padding-top: 20px;
+  background-color: #fffff0;
   padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid black;
   hyphens: auto;
   line-height: 1.2;
   font-weight: normal;

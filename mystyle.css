@@ -1,19 +1,20 @@
 html {
   color: #1a1a1a;
-  background-color: #fffff0;
+  background-color: #fffff2;
 }
 body {
   margin: 0 auto;
   max-width: 45em;
-  /*padding-left: calc(20rem / 14);
-  padding-right: calc(20rem / 14);*/
-  padding-top: 20px;
+  background-color: #fffff0;
   padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   hyphens: auto;
   line-height: 1.2;
   font-weight: normal;
   box-sizing: border-box;
   text-align: justify;
+  border: 2px solid black;
   font-size: 18px;
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
@@ -30,6 +31,7 @@ a:visited {
   color: #551A8B;
 }
 img {
+  display: block;
   max-width: 100%;
 }
 svg {
