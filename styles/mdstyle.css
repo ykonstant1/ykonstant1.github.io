@@ -3,18 +3,14 @@ html {
   background-color: #fffff0;
 }
 body {
-  margin: 0 auto;
+  margin: auto;
   max-width: 50em;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
+  font-size: 1.6rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
   hyphens: auto;
   line-height: 1.2;
-  font-weight: normal;
   box-sizing: border-box;
-  text-align: justify;
-  font-size: 18px;
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
@@ -30,7 +26,6 @@ a:visited {
   color: #551A8B;
 }
 img {
-  display: block;
   max-width: 100%;
 }
 svg {
@@ -112,16 +107,4 @@ td {
 header {
   margin-bottom: 4em;
   text-align: center;
-}
-#TOC li {
-  list-style: none;
-}
-#TOC ul {
-  padding-left: 1.3em;
-}
-#TOC > ul {
-  padding-left: 0;
-}
-#TOC a:not(:hover) {
-  text-decoration: none;
 }

@@ -1,0 +1,13 @@
+@import "mdstyle.css";
+body {
+  text-align: justify;
+  font-size: 1.6rem;
+  max-width: 50em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.6em;
+  color: #1a1a1a;
+}
+a:visited {
+  color: #0000EE;
+}

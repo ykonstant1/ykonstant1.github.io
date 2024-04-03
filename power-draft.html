@@ -22,7 +22,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="texstyle.css" />
+  <link rel="stylesheet" href="styles/texstyle.css" />
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -47,7 +47,27 @@ a limit point of the sequencce. Our methods are combinatorial and
 exploit the shift-and-add interpretation of the sequence.</p>
 </div>
 </header>
-<h1 id="introduction">Introduction</h1>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#notation-and-toolbox" id="toc-notation-and-toolbox"><span
+class="toc-section-number">2</span> Notation and toolbox</a>
+<ul>
+<li><a href="#word-combinatorics" id="toc-word-combinatorics"><span
+class="toc-section-number">2.1</span> Word combinatorics</a></li>
+<li><a href="#the-digraphs-g_n" id="toc-the-digraphs-g_n"><span
+class="toc-section-number">2.2</span> The digraphs <span
+class="math inline">\(G_n\)</span></a></li>
+</ul></li>
+<li><a href="#lower-bounds-for-patterns-in-a-window"
+id="toc-lower-bounds-for-patterns-in-a-window"><span
+class="toc-section-number">3</span> Lower bounds for patterns in a
+window</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
 <p>Let <span class="math inline">\(r_n(\xi) =
 \left(\frac{3}{2}\right)^n\xi\)</span>. The main result states:</p>
 <div id="main_simple" class="main">
@@ -86,12 +106,14 @@ class="math inline">\(2^{r-l+1}\)</span> possible binary strings appear
 infinitely often as <span
 class="math inline">\(n\rightarrow\infty\)</span>.</em></p>
 </div>
-<h1 id="notation-and-toolbox">Notation and toolbox</h1>
+<h1 data-number="2" id="notation-and-toolbox"><span
+class="header-section-number">2</span> Notation and toolbox</h1>
 <p>In this section we lay down some notation and describe the auxiliary
 concepts that will be used to study the sequence <span
 class="math inline">\(r_n(\xi)\)</span>. We begin with definitions
 related to binary words.</p>
-<h2 id="word-combinatorics">Word combinatorics</h2>
+<h2 data-number="2.1" id="word-combinatorics"><span
+class="header-section-number">2.1</span> Word combinatorics</h2>
 <div class="def-rn">
 <p><strong>Definition 3</strong>. <em>For <span
 class="math inline">\(\xi&gt;0\)</span> define <span
@@ -157,7 +179,9 @@ class="math inline">\(w_n(\infty,k_0)\)</span> and <span
 class="math inline">\(w_n(k_0,\infty)\)</span> respectively.</em></p>
 </div>
 <figure id="evol">
-<img src="trans_evolution.jpg" />
+<div class="center">
+<img src="images/trans_evolution.png" />
+</div>
 <figcaption>The transition <span class="math inline">\(\tau\)</span> in
 a fixed window.</figcaption>
 </figure>
@@ -261,7 +285,8 @@ class="math display">\[\tau(d_{n+l},c_{n+l})[01^{k-1}] =
 [?^l01^{k-2l-1}?^l]\]</span> which evidently gives the required number
 of distinct elements. The same proof works for the other sequence. ◻</p>
 </div>
-<h2 id="the-digraphs-g_n">The digraphs <span
+<h2 data-number="2.2" id="the-digraphs-g_n"><span
+class="header-section-number">2.2</span> The digraphs <span
 class="math inline">\(G_n\)</span></h2>
 <p>In this section we give for the abstract window of length <span
 class="math inline">\(n\)</span> a digraph <span
@@ -272,7 +297,9 @@ combinatorial arguments. Figure <a href="#g7" data-reference-type="ref"
 data-reference="g7">2</a> shows the underlying graph of <span
 class="math inline">\(G_7\)</span>.</p>
 <figure id="g7">
-<img src="trans_limit.jpg" />
+<div class="center">
+<img src="images/trans_limit.png" />
+</div>
 <figcaption>The graph underlying <span
 class="math inline">\(G_7\)</span>.</figcaption>
 </figure>
@@ -381,8 +408,9 @@ class="math inline">\(G_k\)</span> that captures all of the vertices,
 showing strong connectivity of <span
 class="math inline">\(G_k\)</span>. ◻</p>
 </div>
-<h1 id="lower-bounds-for-patterns-in-a-window">Lower bounds for patterns
-in a window</h1>
+<h1 data-number="3" id="lower-bounds-for-patterns-in-a-window"><span
+class="header-section-number">3</span> Lower bounds for patterns in a
+window</h1>
 <p>Now we turn to the proof of our main results. We fix arbitrary <span
 class="math inline">\(\xi&gt;0\)</span> and an arbitrary window sequence
 <span class="math inline">\(w_*:=w_*(l,r)\)</span> with at least two
