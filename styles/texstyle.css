@@ -7,6 +7,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #1a1a1a;
 }
+h1{
+  font-size: 1.5em;
+}
+h2, h3 {
+  font-size: 1.2em;
+}
 a:visited {
   color: #0000EE;
 }
