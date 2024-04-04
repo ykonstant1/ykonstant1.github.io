@@ -2,6 +2,9 @@ html {
   color: #1a1a1a;
   background-color: #fffff0;
 }
+title {
+  display: none;
+}
 body {
   margin: auto;
   max-width: 60em;
