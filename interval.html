@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Ioannis Konstantoulas" />
+  <title>A problem on covering the interval</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/texstyle.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">A problem on covering the interval</h1>
+<p class="author">Ioannis Konstantoulas</p>
+</header>
+<p>This is a very nice problem I encountered in Analysis II as an
+undergraduate. It has a two-line solution using a theorem from
+Functional Analysis, but I didn’t know that at the time and managed to
+solve it via an elementary contradiction.</p>
+<p><strong>Problem:</strong> Show that the open unit interval <span
+class="math inline">\((0,1)\)</span> is not the disjoint union of closed
+intervals of positive length.</p>
+<p><strong>Solution:</strong> Suppose that <span
+class="math display">\[I = (0,1) = \bigsqcup_{J \in \mathcal{A}}
+J\]</span> for some collection <span
+class="math inline">\(\mathcal{A}\)</span> where all the <span
+class="math inline">\(J\)</span> have positive length (in particular,
+they have distinct endpoints). Then first of all, this collection of
+intervals must be infinite, since the union of a finite number of closed
+sets is closed whereas <span class="math inline">\(I\)</span> is not
+closed.</p>
+<p>Next, let <span class="math inline">\(D_I\)</span> be the set of all
+distances between pairs of intervals <span class="math inline">\(J,
+J&#39;\)</span>. If this set had a lower bound <span
+class="math inline">\(\epsilon\)</span> greater than zero, then <span
+class="math inline">\(|\mathcal{A}| \leq \lceil 1/\epsilon
+\rceil\)</span> since at most that number of gaps fit inside <span
+class="math inline">\([0,1]\)</span>; this contradicts the fact that
+<span class="math inline">\(\mathcal{A}\)</span> is infinite. Thus the
+infimum of <span class="math inline">\(D_I\)</span> is <span
+class="math inline">\(0\)</span>; so we can find two distinct intervals
+<span class="math inline">\(L_1 = [a_1,l_1]\)</span> and <span
+class="math inline">\(R_1 = [r_1,b_1]\)</span> with <span
+class="math display">\[a_1 &lt; l_1 &lt; r_1 &lt; b_1  \textrm{ and }
+r_1 - l_1 &lt; 1/2.\]</span></p>
+<p>Let <span class="math inline">\(I_1 = (l_1, r_1)\)</span> be the open
+interval between <span class="math inline">\(L_1\)</span> and <span
+class="math inline">\(R_1\)</span>, and <span
+class="math inline">\(\mathcal{A}_1\)</span> the subset of <span
+class="math inline">\(\mathcal{A}\)</span> of intervals that intersect
+<span class="math inline">\(I_1\)</span>. Then these cover <span
+class="math inline">\(I_1\)</span>, are disjoint and do not intersect
+<span class="math inline">\(L_1\)</span> or <span
+class="math inline">\(R_1\)</span>, so <span class="math display">\[I_1
+= \bigsqcup_{J \in \mathcal{A}_1}J.\]</span> As before, <span
+class="math inline">\(\mathcal{A}_1\)</span> is infinite, so if <span
+class="math inline">\(D_1\)</span> is the set of distances of members of
+<span class="math inline">\(\mathcal{A}_1\)</span>, it too has zero
+infimum. Therefore, we can repeat the previous construction to find
+intervals <span class="math inline">\(L_2 = [a_2,l_2]\)</span> and <span
+class="math inline">\(R_2 = [r_2,b_2]\)</span> bordering the open
+interval <span class="math inline">\(I_2 = (l_2,r_2)\)</span> such that
+<span class="math inline">\(|I_2| = r_2 - l_2 &lt; 1/4\)</span>.</p>
+<p>Continuing this process we find <span class="math inline">\(L_k, R_k
+\in \mathcal{A}\)</span> and construct a nested sequence of intervals
+<span class="math inline">\(I_k = (l_k, r_k)\)</span> of length <span
+class="math inline">\(|I_k| &lt; 2^{-k}\)</span>. The shrinking lengths
+of the <span class="math inline">\(I_k\)</span> imply that the sequence
+<span class="math display">\[s := l_1,\, r_1,\, l_2,\,
+r_2,\,\ldots\]</span> is Cauchy; therefore it has a limit <span
+class="math inline">\(x \in (0,1).\)</span> Furthermore, the
+sub-sequence <span class="math inline">\(l_k\)</span> is strictly
+increasing, so <span class="math inline">\(l_k \nearrow x\)</span>, and
+the sub-sequence <span class="math inline">\(r_k\)</span> is strictly
+decreasing, so <span class="math inline">\(r_k \searrow
+x\)</span>.</p>
+<p>Since <span class="math inline">\(\mathcal{A}\)</span> partitions
+<span class="math inline">\((0,1)\)</span>, there exists a unique <span
+class="math inline">\(J = [l,r] \in \mathcal{A}\)</span> such that <span
+class="math inline">\(x \in J\)</span>. Let <span
+class="math inline">\(\epsilon\)</span> be the length of <span
+class="math inline">\(J\)</span>: <span class="math inline">\(\epsilon=r
+-l\)</span>. Since the sequence <span class="math inline">\(s\)</span>
+converges to <span class="math inline">\(x\)</span>, after a certain
+<span class="math inline">\(k_0\)</span> we have <span
+class="math inline">\(0 &lt; x - l_k &lt; \epsilon/2\)</span> and <span
+class="math inline">\(0 &lt; r_k - x &lt; \epsilon/2\)</span>. Depending
+on which half of <span class="math inline">\(J\)</span> contains <span
+class="math inline">\(x\)</span>, either the first or the second (or
+both) inequality gives a contradiction: infinitely many <span
+class="math inline">\(L_k\)</span> or <span
+class="math inline">\(R_k\)</span> intersect <span
+class="math inline">\(J\)</span>, whereas <span
+class="math inline">\(J\)</span> can be at most one of those.</p>
+</body>
+</html>
