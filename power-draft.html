@@ -66,12 +66,13 @@ class="toc-section-number">3</span> Lower bounds for patterns in a
 window</a></li>
 </ul>
 </nav>
+<p><img src="images/c2d16322cbfa1386f3e0f3b2085ea10cf51856f7.svg" /></p>
 <h1 data-number="1" id="introduction"><span
 class="header-section-number">1</span> Introduction</h1>
 <p>Let <span class="math inline">\(r_n(\xi) =
 \left(\frac{3}{2}\right)^n\xi\)</span>. The main result states:</p>
-<div id="main_simple" class="main">
-<p><strong>Theorem 1</strong>. <em>Let <span class="math inline">\(\xi
+<div class="main">
+<p><strong>Theorem 1</strong>. <em> Let <span class="math inline">\(\xi
 &gt;0\)</span>, <span class="math inline">\(N\)</span> a natural number
 greater than <span class="math inline">\(5\)</span> and <span
 class="math inline">\(f_n:= \{r_n(\xi)\}\)</span>. Consider the dyadic
@@ -97,8 +98,8 @@ class="math inline">\(r\)</span> indicate sides.</p>
 </div>
 <p>We have (suppressing the dependence on <span
 class="math inline">\(\xi\)</span>):</p>
-<div id="prop" class="mainc">
-<p><strong>Proposition 2</strong>. <em>For any window <span
+<div class="mainc">
+<p><strong>Proposition 2</strong>. <em> For any window <span
 class="math inline">\(w_n(l,r)\)</span> with <span
 class="math inline">\(l&lt;r\)</span>, at least <span
 class="math inline">\(\frac{1}{2}\sqrt{r-l+1}\)</span> of the <span
@@ -142,16 +143,15 @@ d^{n+1}_k= d^n_k+d^n_{k+1} + c^n_{k-1} \pmod{2}\]</span> where <span
 class="math inline">\(c^n_{k-1}\)</span> is the carry that has come from
 the previous operation. Observe that the carry produced in this
 operation is <span class="math inline">\(1\)</span> precisely when two
-or more of the three terms in <a href="#digit"
-data-reference-type="eqref" data-reference="digit">[digit]</a> are <span
+or more of the three terms in <span
+class="math inline">\(\eqref{digit}\)</span> are <span
 class="math inline">\(1\)</span>. This fact can be expressed using the
 relation <span class="math display">\[\label{carry}
 c^n_k =
 d^n_kd^n_{k+1}+d^n_{k+1}c^n_{k-1}+c^n_{k-1}d^n_k\pmod{2}\]</span>
-Together, <a href="#digit" data-reference-type="eqref"
-data-reference="digit">[digit]</a> and <a href="#carry"
-data-reference-type="eqref" data-reference="carry">[carry]</a> give us
-the digital evolution of <span class="math inline">\(r_n\)</span>: <span
+Together, <span class="math inline">\(\eqref{digit}\)</span> and <span
+class="math inline">\(\eqref{carry}\)</span> give us the digital
+evolution of <span class="math inline">\(r_n\)</span>: <span
 class="math display">\[\begin{aligned}
 d^{n+1}_k &amp;=&amp; L(d^n_k,d^n_{k+1}, c^n_{k-1}) \pmod{2}\\
 c^n_k &amp;=&amp; Q(d^n_k,d^n_{k+1}, c^n_{k-1})\pmod{2}
@@ -208,8 +208,8 @@ class="math inline">\(s_j\)</span> in the numbering illustrated
 above.</em></p>
 </div>
 <p>The most basic fact about the transition is the following lemma:</p>
-<div id="trans" class="lemma-trans">
-<p><strong>Lemma 7</strong>. <em>Fix <span class="math inline">\(k\geq
+<div class="lemma-trans">
+<p><strong>Lemma 7</strong>. <em> Fix <span class="math inline">\(k\geq
 2\)</span>. For any two <span class="math inline">\(k\)</span>-digit
 strings <span class="math inline">\(s\)</span> and <span
 class="math inline">\(s&#39;\)</span>, there is at most one pair <span
@@ -231,8 +231,8 @@ change, again leading to a contradiction. ◻</p>
 </div>
 <p>The next lemma shows aperiodicity of string transitions in a given
 window of <span class="math inline">\(r_n(\xi)\)</span>:</p>
-<div id="per" class="non-per">
-<p><strong>Lemma 8</strong>. <em>For any <span
+<div class="non-per">
+<p><strong>Lemma 8</strong>. <em> For any <span
 class="math inline">\(l&lt; r\)</span>, the sequence <span
 class="math inline">\(w_n(l,r)\)</span> is not eventually
 periodic.</em></p>
@@ -241,8 +241,7 @@ periodic.</em></p>
 <p><em>Proof.</em> Fix <span class="math inline">\(l&lt;r\)</span>.
 Suppose that for <span class="math inline">\(n\geq n_0\)</span>, the
 sequence <span class="math inline">\(w_n(l,r)\)</span> is periodic. By
-Lemma <a href="#trans" data-reference-type="ref"
-data-reference="trans">7</a>, the pairs <span
+Lemma <span class="math inline">\(\ref{trans}\)</span>, the pairs <span
 class="math inline">\((d,c)_n\)</span> involved in the transition <span
 class="math inline">\(\tau(d,c)_n(w_n(l,r))=w_{n+1}(l,r)\)</span> are
 determined by the sequence, and since this is periodic, so is the
@@ -263,8 +262,8 @@ increasing. ◻</p>
 class="math inline">\(k\)</span>-digit strings <span
 class="math inline">\(0\bar{1}\)</span> and <span
 class="math inline">\(1\bar{0}\)</span>.</p>
-<div id="zeroone" class="one">
-<p><strong>Lemma 9</strong>. <em>Consider a sequence of pairs <span
+<div class="one">
+<p><strong>Lemma 9</strong>. <em> Consider a sequence of pairs <span
 class="math inline">\((d_n,c_n)\)</span> and denote by <span
 class="math inline">\([01^{k-1}]\)</span> the string with <span
 class="math inline">\(k\)</span> digits, the most significant equal to
@@ -293,9 +292,9 @@ class="math inline">\(n\)</span> a digraph <span
 class="math inline">\(G_n\)</span> illustrating all possible string
 transitions under <span class="math inline">\(\tau\)</span>. We will use
 the word metric of these digraphs and some basic properties for our main
-combinatorial arguments. Figure <a href="#g7" data-reference-type="ref"
-data-reference="g7">2</a> shows the underlying graph of <span
-class="math inline">\(G_7\)</span>.</p>
+combinatorial arguments. Figure <span
+class="math inline">\(\ref{g7}\)</span> shows the underlying graph of
+<span class="math inline">\(G_7\)</span>.</p>
 <figure id="g7">
 <div class="center">
 <img src="images/trans_limit.png" />
@@ -336,12 +335,12 @@ class="math inline">\(\tau(d,c)(s)=s&#39;\)</span> for two <span
 class="math inline">\(k\)</span>-digit strings <span
 class="math inline">\(s,s&#39;\)</span>. Then <span
 class="math inline">\(d,c\)</span> are uniquely determined by this
-equation by lemma <a href="#trans" data-reference-type="ref"
-data-reference="trans">7</a>, showing that there are no multiple
-directed edges. From this we also conclude that if <span
-class="math inline">\(s\)</span> is given, then different choices for
-<span class="math inline">\((d,c)\)</span> lead to different <span
-class="math inline">\(s&#39;\)</span>, i.e. the out-degree is four.</p>
+equation by lemma <span class="math inline">\(\ref{trans}\)</span>,
+showing that there are no multiple directed edges. From this we also
+conclude that if <span class="math inline">\(s\)</span> is given, then
+different choices for <span class="math inline">\((d,c)\)</span> lead to
+different <span class="math inline">\(s&#39;\)</span>, i.e. the
+out-degree is four.</p>
 <p>Now suppose <span class="math inline">\(s&#39;\)</span> is given. We
 will show there are precisely four distinct strings <span
 class="math inline">\(s\)</span> such that <span
@@ -455,16 +454,16 @@ class="math inline">\(n\)</span>.</p>
 <p>Note that trapping means the pattern extends uniquely in the lateral
 direction; locking means the pattern has a unique vertical transition.
 The interplay between the two is crucial for us.</p>
-<div id="free_pat" class="lemma">
-<p><strong>Lemma 15</strong>. <em>For any given <span
+<div class="lemma">
+<p><strong>Lemma 15</strong>. <em> For any given <span
 class="math inline">\(w_*\)</span> there exists at least one unlocked
 persistent pattern.</em></p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> If all persistent patterns were locked, the sequence
 <span class="math inline">\(w_*\)</span> would be eventually periodic,
-contradicting Lemma <a href="#per" data-reference-type="ref"
-data-reference="per">8</a>. ◻</p>
+contradicting Lemma <span
+class="math inline">\(\ref{per}\)</span>. ◻</p>
 </div>
 <p>Observe that if a pattern traps the boundary into the digit patterns
 <span class="math inline">\(*\underline{\quad}00\)</span> and <span
@@ -539,10 +538,9 @@ cannot determine uniquely the transition. To conclude, starting with an
 arbitrary window <span class="math inline">\(w_*\)</span> of length
 <span class="math inline">\(k_0\)</span> without a free pattern, we
 found <span class="math inline">\(l-1\)</span> distinct persistent
-patterns (by lemma <a href="#zeroone" data-reference-type="ref"
-data-reference="zeroone">9</a>) in the extension <span
-class="math inline">\(*w_***\cdots**\)</span> of length <span
-class="math inline">\(1+k_0+2l\)</span>.</p>
+patterns (by lemma <span class="math inline">\(\ref{zeroone}\)</span>)
+in the extension <span class="math inline">\(*w_***\cdots**\)</span> of
+length <span class="math inline">\(1+k_0+2l\)</span>.</p>
 <p>Now suppose every string of length <span
 class="math inline">\(k_0\)</span> has at least <span
 class="math inline">\(l_0&gt;1\)</span> distinct persistent strings.
@@ -568,7 +566,7 @@ get the result. ◻</p>
 <p>As a corollary of this proposition (applied to <span
 class="math inline">\(w_n(1,r)\)</span> for arbitrary <span
 class="math inline">\(r\)</span>) we get the infinitude of limit points
-in the quantitative manner claimed in Theorem <a href="#main_simple"
-data-reference-type="ref" data-reference="main_simple">1</a>.</p>
+in the quantitative manner claimed in Theorem <span
+class="math inline">\(\ref{main_simple}\)</span>.</p>
 </body>
 </html>
