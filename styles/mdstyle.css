@@ -1,16 +1,17 @@
 html {
   color: #1a1a1a;
-  background-color: #fffff0;
+  background-color: #fffff3;
 }
 header {
   text-align: center;
 }
+footer {
+  margin-inline: auto;
+  max-width: 65ch;
+}
 body {
-  margin: auto;
-  max-width: 60em;
-  font-size: 1.2rem;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  margin-inline: auto;
+  max-width: 65ch;
   hyphens: auto;
   line-height: 1.2;
   box-sizing: border-box;
