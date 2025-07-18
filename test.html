@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Ioannis Konstantoulas" />
+  <title>Digits of rational power sequences</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/texstyle.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Digits of rational power sequences</h1>
+<p class="author">Ioannis Konstantoulas</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>In this note we study the digits of <span
+class="math inline">\left(\frac{3}{2}\right)^n\xi</span> for arbitrary
+<span class="math inline">\xi&gt;0</span> and show that in the dyadic
+decomposition of <span class="math inline">[0,1]</span> into <span
+class="math inline">2^n</span> intervals, at least <span
+class="math inline">\frac{1}{2}\sqrt{n}</span> distinct ones contain a
+limit point of the sequencce. Our methods are combinatorial and exploit
+the shift-and-add interpretation of the sequence.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#notation-and-toolbox" id="toc-notation-and-toolbox"><span
+class="toc-section-number">2</span> Notation and toolbox</a>
+<ul>
+<li><a href="#word-combinatorics" id="toc-word-combinatorics"><span
+class="toc-section-number">2.1</span> Word combinatorics</a></li>
+<li><a href="#the-digraphs-g_n" id="toc-the-digraphs-g_n"><span
+class="toc-section-number">2.2</span> The digraphs <span
+class="math inline">G_n</span></a></li>
+</ul></li>
+<li><a href="#lower-bounds-for-patterns-in-a-window"
+id="toc-lower-bounds-for-patterns-in-a-window"><span
+class="toc-section-number">3</span> Lower bounds for patterns in a
+window</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>Let <span class="math inline">r_n(\xi) =
+\left(\frac{3}{2}\right)^n\xi</span>. The main result states:</p>
+<div id="main_simple" class="main">
+<p><strong>Theorem 1</strong>. <em>Let <span class="math inline">\xi
+&gt;0</span>, <span class="math inline">N</span> a natural number
+greater than <span class="math inline">5</span> and <span
+class="math inline">f_n:= \{r_n(\xi)\}</span>. Consider the dyadic
+decomposition of <span class="math inline">[0,1]</span> up to depth
+<span class="math inline">N</span>: <span class="math display">[0,1] =
+\bigcup_{i=0}^{N-1} [\frac{i}{2^{N}},\frac{i+1}{2^{N}}].</span> At least
+<span class="math inline">\frac{1}{2}\sqrt{N}</span> intervals in this
+decomposition contain a limit point of <span
+class="math inline">(f_n)</span>.</em></p>
+</div>
+<p>We deduce this theorem from a combinatorial statement about words
+associated to digits of <span class="math inline">r_n</span>.</p>
+<div class="defin">
+<p><strong>Definition 1</strong>. For <span
+class="math inline">l&lt;r</span> let <span
+class="math inline">w_n(l,r)</span> denote the block of digits of <span
+class="math inline">r_n\xi</span> starting <span
+class="math inline">|l|</span> places from zero and ending <span
+class="math inline">|r|</span> places away; the signs of <span
+class="math inline">l</span> and <span class="math inline">r</span>
+indicate sides.</p>
+</div>
+<p>We have (suppressing the dependence on <span
+class="math inline">\xi</span>):</p>
+<div id="prop" class="mainc">
+<p><strong>Proposition 2</strong>. <em>For any window <span
+class="math inline">w_n(l,r)</span> with <span
+class="math inline">l&lt;r</span>, at least <span
+class="math inline">\frac{1}{2}\sqrt{r-l+1}</span> of the <span
+class="math inline">2^{r-l+1}</span> possible binary strings appear
+infinitely often as <span
+class="math inline">n\rightarrow\infty</span>.</em></p>
+</div>
+<h1 data-number="2" id="notation-and-toolbox"><span
+class="header-section-number">2</span> Notation and toolbox</h1>
+<p>In this section we lay down some notation and describe the auxiliary
+concepts that will be used to study the sequence <span
+class="math inline">r_n(\xi)</span>. We begin with definitions related
+to binary words.</p>
+<h2 data-number="2.1" id="word-combinatorics"><span
+class="header-section-number">2.1</span> Word combinatorics</h2>
+<div class="def-rn">
+<p><strong>Definition 3</strong>. <em>For <span
+class="math inline">\xi&gt;0</span> define <span
+class="math display">r_n(\xi) := \left(\frac{3}{2}\right)^n\cdot
+\xi;</span> in any discussion where <span class="math inline">\xi</span>
+is fixed, we will suppress the dependence on <span
+class="math inline">\xi</span> and simply write <span
+class="math inline">r_n</span>.</em></p>
+</div>
+<div class="def-dig">
+<p><strong>Definition 4</strong>. <em>The digits in the binary expansion
+of <span class="math inline">r_n(\xi)</span> will be labeled as <span
+class="math display">r_n(\xi) = \sum_{k=m(n)}^{M(n)}
+d^n_k(\xi)\,2^k.</span> As in the previous definition, we will normally
+suppress the dependence on <span
+class="math inline">\xi</span>.</em></p>
+<p><em>The operation <span class="math inline">r_{n+1} =
+(1+1/2)r_n</span> produces a carry through the addition <span
+class="math inline">d^n_k+d^n_{k+1}</span>. This carry is denoted by
+<span class="math inline">c^n_k</span>.</em></p>
+</div>
+<p>Using the notation we established, we see that the action of <span
+class="math inline">\frac{3}{2}\cdot</span> on digits is <span
+class="math display">\label{digit}
+d^{n+1}_k= d^n_k+d^n_{k+1} + c^n_{k-1} \pmod{2}</span> where <span
+class="math inline">c^n_{k-1}</span> is the carry that has come from the
+previous operation. Observe that the carry produced in this operation is
+<span class="math inline">1</span> precisely when two or more of the
+three terms in <a href="#digit" data-reference-type="eqref"
+data-reference="digit">[digit]</a> are <span
+class="math inline">1</span>. This fact can be expressed using the
+relation <span class="math display">\label{carry}
+c^n_k = d^n_kd^n_{k+1}+d^n_{k+1}c^n_{k-1}+c^n_{k-1}d^n_k\pmod{2}</span>
+Together, <a href="#digit" data-reference-type="eqref"
+data-reference="digit">[digit]</a> and <a href="#carry"
+data-reference-type="eqref" data-reference="carry">[carry]</a> give us
+the digital evolution of <span class="math inline">r_n</span>: <span
+class="math display">\begin{aligned}
+d^{n+1}_k &amp;=&amp; L(d^n_k,d^n_{k+1}, c^n_{k-1}) \pmod{2}\\
+c^n_k &amp;=&amp; Q(d^n_k,d^n_{k+1}, c^n_{k-1})\pmod{2}
+\end{aligned}</span> where <span class="math inline">L(x,y,z) =
+x+y+z</span> and <span class="math inline">Q(x,y,z) =
+xy+yz+zx</span>.</p>
+<p>The next concept is that of a window; all our work will take place in
+windows.</p>
+<div class="def-win">
+<p><strong>Definition 5</strong>. <em>For any <span
+class="math inline">n\geq 0</span> and <span class="math inline">l\leq
+r</span> we define the time-<span class="math inline">n</span> <span
+class="math inline">(l,r)</span>-window <span
+class="math inline">w_n(l,r)</span> to be the binary string <span
+class="math inline">d^n_l\cdots d^n_r</span>. The <span
+class="math inline">(l,r)</span>-window of <span
+class="math inline">r_n(\xi)</span>, denoted <span
+class="math inline">w_*(l,r)</span>, is the sequence of strings <span
+class="math inline">\left(w_n(l,r)\right)_{n\geq 0}</span>. The strings
+corresponding to the left and right tails <span
+class="math display">\sum_{k=0}^\infty d^n_{k_0\pm k}\, 2^{k_0\pm
+k}</span> are denoted by <span
+class="math inline">w_n(\infty,k_0)</span> and <span
+class="math inline">w_n(k_0,\infty)</span> respectively.</em></p>
+</div>
+<figure id="evol">
+<div class="center">
+<img src="images/trans_evolution.png" />
+</div>
+<figcaption>The transition <span class="math inline">\tau</span> in a
+fixed window.</figcaption>
+</figure>
+<p>We will need to refer to the action of multiplication by <span
+class="math inline">(3/2)</span> on a window and more generally on
+strings.</p>
+<div class="def-mul">
+<p><strong>Definition 6</strong>. <em>Define <span
+class="math display">\tau(w_n(l,r)):=\frac{3}{2}\cdot w_n(l,r) :=
+w_{n+1}(l,r);</span> more generally, for a <span
+class="math inline">k</span>-digit string <span
+class="math inline">s=d_k\cdots d_1</span> and two binary digits <span
+class="math inline">(d,c)</span> define <span
+class="math inline">\tau(d,c)(s)</span> to be the binary string <span
+class="math inline">s&#39; = d_k&#39;\cdots d_1&#39;</span> where <span
+class="math display">d_i&#39;
+= d_i+d_{i+1} +c_{i-1}\pmod{2}\quad \textrm{for }k\geq i\geq 1</span>
+with <span class="math inline">d_{k+1}=d</span> and <span
+class="math inline">c_0=c</span>. We will consider binary strings as
+abstract windows in this context. The <span
+class="math inline">j</span>-th digit of a string <span
+class="math inline">s</span> will be denoted naturally by <span
+class="math inline">s_j</span> in the numbering illustrated
+above.</em></p>
+</div>
+<p>The most basic fact about the transition is the following lemma:</p>
+<div id="trans" class="lemma-trans">
+<p><strong>Lemma 7</strong>. <em>Fix <span class="math inline">k\geq
+2</span>. For any two <span class="math inline">k</span>-digit strings
+<span class="math inline">s</span> and <span
+class="math inline">s&#39;</span>, there is at most one pair <span
+class="math inline">(d,c)</span> such that <span
+class="math inline">\tau(d,c)(s)=s&#39;</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Assume <span
+class="math inline">\tau(d,c)(s)=s&#39;</span>; if <span
+class="math inline">c</span> is switched, the least significant digit of
+the result of the operation changes and cannot agree with that of <span
+class="math inline">s&#39;</span> (since the string has at least two
+digits, the incoming <span class="math inline">d</span> does not affect
+the least significant one); thus <span class="math inline">c</span>
+cannot be switched. If <span class="math inline">d</span> is switched,
+then since <span class="math inline">c</span> is not, the most
+significant digit will change, again leading to a contradiction. ◻</p>
+</div>
+<p>The next lemma shows aperiodicity of string transitions in a given
+window of <span class="math inline">r_n(\xi)</span>:</p>
+<div id="per" class="non-per">
+<p><strong>Lemma 8</strong>. <em>For any <span class="math inline">l&lt;
+r</span>, the sequence <span class="math inline">w_n(l,r)</span> is not
+eventually periodic.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Fix <span class="math inline">l&lt;r</span>. Suppose
+that for <span class="math inline">n\geq n_0</span>, the sequence <span
+class="math inline">w_n(l,r)</span> is periodic. By Lemma <a
+href="#trans" data-reference-type="ref" data-reference="trans">7</a>,
+the pairs <span class="math inline">(d,c)_n</span> involved in the
+transition <span
+class="math inline">\tau(d,c)_n(w_n(l,r))=w_{n+1}(l,r)</span> are
+determined by the sequence, and since this is periodic, so is the
+sequence <span class="math inline">(d,c)_n</span>. However, the <span
+class="math inline">d</span>-part of the pair <span
+class="math inline">(d,c)_n</span> is precisely the most significant
+digit of <span class="math inline">w_n(l-1,r)</span>. Therefore the
+sequence <span class="math inline">w_n(l-1,r)</span> is periodic,
+starting with <span class="math inline">n=n_0</span>. Continuing this
+way, we see that for <span class="math inline">n\geq n_0</span>, the
+sequence <span class="math inline">w_n(\infty,
+r)</span> is periodic. This contradicts the fact that the position of
+the most significant digit <span class="math inline">M(n)</span> of
+<span class="math inline">r_n</span> is monotonically increasing. ◻</p>
+</div>
+<p>Finally, we need a small lemma on the behavior of the <span
+class="math inline">k</span>-digit strings <span
+class="math inline">0\bar{1}</span> and <span
+class="math inline">1\bar{0}</span>.</p>
+<div id="zeroone" class="one">
+<p><strong>Lemma 9</strong>. <em>Consider a sequence of pairs <span
+class="math inline">(d_n,c_n)</span> and denote by <span
+class="math inline">[01^{k-1}]</span> the string with <span
+class="math inline">k</span> digits, the most significant equal to <span
+class="math inline">0</span> and all others equal to <span
+class="math inline">1</span>. The sequence <span
+class="math inline">\tau(d_n,c_n)\bar{1}</span> has at least <span
+class="math inline">\lfloor\frac{k}{2}\rfloor-1</span> consecutive
+distinct elements. The same is true for the sequence <span
+class="math inline">[10^{k-1}]</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Applying <span
+class="math inline">\tau(d_n,c_n)[01^{k-1}]</span> gives <span
+class="math inline">[?01^{k-3}?]</span> where the question marks are
+unknown and depend on <span class="math inline">(d_n,c_n)</span>.
+Iterating this we get <span
+class="math display">\tau(d_{n+l},c_{n+l})[01^{k-1}] =
+[?^l01^{k-2l-1}?^l]</span> which evidently gives the required number of
+distinct elements. The same proof works for the other sequence. ◻</p>
+</div>
+<h2 data-number="2.2" id="the-digraphs-g_n"><span
+class="header-section-number">2.2</span> The digraphs <span
+class="math inline">G_n</span></h2>
+<p>In this section we give for the abstract window of length <span
+class="math inline">n</span> a digraph <span
+class="math inline">G_n</span> illustrating all possible string
+transitions under <span class="math inline">\tau</span>. We will use the
+word metric of these digraphs and some basic properties for our main
+combinatorial arguments. Figure <a href="#g7" data-reference-type="ref"
+data-reference="g7">2</a> shows the underlying graph of <span
+class="math inline">G_7</span>.</p>
+<figure id="g7">
+<div class="center">
+<img src="images/trans_limit.png" />
+</div>
+<figcaption>The graph underlying <span
+class="math inline">G_7</span>.</figcaption>
+</figure>
+<div class="def-G">
+<p><strong>Definition 10</strong>. <em>Let <span class="math inline">G_n
+= (V_n,E_n)</span> be the digraph with vertex set <span
+class="math inline">V_n</span> equal to the set of all binary strings of
+length <span class="math inline">n</span> (abstract windows) and such
+that there is a directed edge <span
+class="math inline">(s,s&#39;)</span> between two strings <span
+class="math inline">s</span> and <span class="math inline">s&#39;</span>
+if there exists a pair <span class="math inline">(d,c)</span> such that
+<span class="math inline">s&#39; = \tau(d,c)(s)</span>.</em></p>
+</div>
+<p>Now let us describe some properties of the <span
+class="math inline">G_n</span> that we will need.</p>
+<div class="G-structure">
+<p><strong>Lemma 11</strong>. <em>The digraphs <span
+class="math inline">G_n</span> have the following properties:</em></p>
+<ol>
+<li><p><em>They are <span class="math inline">4</span>-biregular, i.e.
+each vertex has four out-edges and four in-edges and no multiple
+directed edges.</em></p></li>
+<li><p><em>There are exactly four vertices with loops.</em></p></li>
+<li><p><em>They are strongly connected, i.e. for any two vertices there
+is a directed path joining them.</em></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Assume <span
+class="math inline">\tau(d,c)(s)=s&#39;</span> for two <span
+class="math inline">k</span>-digit strings <span
+class="math inline">s,s&#39;</span>. Then <span
+class="math inline">d,c</span> are uniquely determined by this equation
+by lemma <a href="#trans" data-reference-type="ref"
+data-reference="trans">7</a>, showing that there are no multiple
+directed edges. From this we also conclude that if <span
+class="math inline">s</span> is given, then different choices for <span
+class="math inline">(d,c)</span> lead to different <span
+class="math inline">s&#39;</span>, i.e. the out-degree is four.</p>
+<p>Now suppose <span class="math inline">s&#39;</span> is given. We will
+show there are precisely four distinct strings <span
+class="math inline">s</span> such that <span
+class="math inline">\tau(d,c)(s)=s&#39;</span>. Begin to construct <span
+class="math inline">s</span> by choosing its first two digits <span
+class="math inline">s_2s_1</span> in an arbitrary way. This allows four
+distinct choices which determine uniquely the rest of the data: for each
+of these choices there is a unique pair <span
+class="math inline">(d,c)</span> and a unique extension <span
+class="math inline">s_k\cdots
+s_2s_1</span> such that <span
+class="math inline">\tau(d,c)(s)=s&#39;</span>. To see this, look at the
+effect on digits: we need <span class="math display">s&#39;_1=
+s_1+s_2+c</span> which holds for a unique <span
+class="math inline">c</span>; this also determines the carry <span
+class="math inline">c_1</span> to be used in the next operation. The
+next equation reads <span
+class="math display">s&#39;_2=s_2+s_3+c_1</span> which uniquely
+determines <span class="math inline">s_3</span> and therefore also <span
+class="math inline">c_2</span>, and so on. At the last step we have
+<span class="math inline">s&#39;_k = s_k+d+c_{k-1}</span> which uniquely
+determines <span class="math inline">d</span> (<span
+class="math inline">s_k</span> and <span
+class="math inline">c_{k-1}</span> had been determined at the previous
+step).</p>
+<p>Next we show that precisely four vertices have loops in them. The
+tactic is the same as above: we want <span
+class="math inline">\tau(d,c)(s)=s</span> for some <span
+class="math inline">(d,c)</span>; we arbitrarily assign the first two
+digits of <span class="math inline">s</span> and show that the rest of
+the digits, as well as <span class="math inline">d</span> and <span
+class="math inline">c</span>, are uniquely determined. The equation
+gives <span class="math inline">s_1=s_1+s_2+c</span> which determines
+<span class="math inline">c</span> . Similarly, at each step we have
+<span class="math display">s_j=s_j+s_{j+1} + c_{j-1};</span> the carry
+has been determined by the previous operation, so <span
+class="math inline">s_{k+1}</span> is also uniquely determined. At the
+final step we have <span class="math inline">s_k = s_k+d+c_{k-1}</span>
+and this determines <span class="math inline">d</span>.</p>
+<p>In order to show that the graphs <span class="math inline">G_k</span>
+are strongly connected, we make use of the metric theory of <span
+class="math inline">\{r_n(\xi)\}</span>. We know that for almost every
+<span class="math inline">\xi&gt;0</span>, the sequence of fractional
+parts of <span class="math inline">(\frac{3}{2})^n\xi</span> is
+uniformly distributed in <span class="math inline">[0,1]</span> . In
+particular, the limit points of the sequence are dense in <span
+class="math inline">[0,1]</span>. This implies that the string sequence
+<span class="math inline">w_n(-1,-k)(\xi)</span> will see all <span
+class="math inline">2^k</span> possible strings since each string
+corresponds to one of the <span class="math inline">2^k</span>
+boundaries of dyadic intervals in the canonical dyadic partition of
+<span class="math inline">[0,1)</span>. Therefore, if we choose <span
+class="math inline">\xi</span> such that the sequence has a dense set of
+limit points in <span class="math inline">[0,1]</span>, for any <span
+class="math inline">k</span> the string <span
+class="math inline">w_n(-1,-k)(\xi)</span> takes on all <span
+class="math inline">2^k</span> patterns. This sequence is a realization
+of a directed walk on <span class="math inline">G_k</span> that captures
+all of the vertices, showing strong connectivity of <span
+class="math inline">G_k</span>. ◻</p>
+</div>
+<h1 data-number="3" id="lower-bounds-for-patterns-in-a-window"><span
+class="header-section-number">3</span> Lower bounds for patterns in a
+window</h1>
+<p>Now we turn to the proof of our main results. We fix arbitrary <span
+class="math inline">\xi&gt;0</span> and an arbitrary window sequence
+<span class="math inline">w_*:=w_*(l,r)</span> with at least two digits,
+and let <span class="math inline">k=r-l</span> be the size of the
+window. We need the following definitions:</p>
+<div class="defin">
+<p><strong>Definition 12</strong>. A property of strings in <span
+class="math inline">w_*</span> is said to be persistent if it is true
+infinitely often in the given sequence. Similarly, a specific binary
+pattern is persistent if it occurs infinitely often in <span
+class="math inline">w_*</span>. Since only finitely many patterns can
+occur in <span class="math inline">w_*</span>, eventually all such
+patterns are persistent.</p>
+</div>
+<div class="defin">
+<p><strong>Definition 13</strong>. The natural extension of a window
+<span class="math inline">w=w_n(l,r)</span> is the window <span
+class="math inline">w_n(l-1,r+2)</span> and we denote it <span
+class="math inline">w^e</span>. The <span
+class="math inline">n</span>-th iterated extension is denoted <span
+class="math inline">w^{e(n)}</span>. The windows <span
+class="math inline">w_*(l-1,l-1)</span> and <span
+class="math inline">w_*(r+1,r+2)</span> together form the extension
+boundary or just boundary of <span class="math inline">w</span>. We call
+the first (single digit) window the front and the second (digital pair)
+the rear.</p>
+</div>
+<div class="defin">
+<p><strong>Definition 14</strong>. A persistent pattern in <span
+class="math inline">w_*</span> is said to trap the boundary if for all
+large <span class="math inline">n</span>, the boundary digits are
+determined by the pattern. A persistent pattern is locked if for all
+large <span class="math inline">n</span>, whenever it appears in <span
+class="math inline">w_n</span>, <span class="math inline">w_{n+1}</span>
+is uniquely determined. If a persistent pattern has at least two
+distinct persistent extensions in <span class="math inline">w^e</span>
+we call it free, and if it has at least two persistent extensions in
+<span class="math inline">w^{e(n)}</span> we call it free at spread
+<span class="math inline">n</span>.</p>
+</div>
+<p>Note that trapping means the pattern extends uniquely in the lateral
+direction; locking means the pattern has a unique vertical transition.
+The interplay between the two is crucial for us.</p>
+<div id="free_pat" class="lemma">
+<p><strong>Lemma 15</strong>. <em>For any given <span
+class="math inline">w_*</span> there exists at least one unlocked
+persistent pattern.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> If all persistent patterns were locked, the sequence
+<span class="math inline">w_*</span> would be eventually periodic,
+contradicting Lemma <a href="#per" data-reference-type="ref"
+data-reference="per">8</a>. ◻</p>
+</div>
+<p>Observe that if a pattern traps the boundary into the digit patterns
+<span class="math inline">*\underline{\quad}00</span> and <span
+class="math inline">*\underline{\quad}11</span> then it is locked; in
+all four cases the pair <span class="math inline">(d,c)</span> is
+determined by the boundary, and thus the transition is determined by the
+pattern. On the other hand, a pattern can possibly trap a boundary
+pattern of the forms <span
+class="math inline">*\underline{\quad}01</span> or <span
+class="math inline">*\underline{\quad}10</span> but not be locked; in
+this latter case the pattern can be free due to the carry.</p>
+<p>With these preliminaries, we can give a first uniform lower bound for
+the number of patterns in any window, and thus get our first
+quantitative density statement for limit points of <span
+class="math inline">r_n(\xi)</span>.</p>
+<div class="prop">
+<p><strong>Proposition 16</strong>. <em>For any <span
+class="math inline">k\geq 2</span> the minimum number of distinct
+persistent strings in a window of size <span
+class="math inline">k</span> is bounded below by <span
+class="math inline">\frac{1}{2}\sqrt{k}</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Let <span class="math inline">p_k</span> be the
+minimum number of persistent strings over all windows of size <span
+class="math inline">k</span> (for a fixed <span
+class="math inline">\xi</span>; we will give a uniform lower bound for
+<span class="math inline">p_k</span> over <span
+class="math inline">\xi</span>). Start with an arbitrary window <span
+class="math inline">w_*</span> of size <span class="math inline">k_0\geq
+2</span>. We know <span class="math inline">w_*</span> is not eventually
+periodic so <span class="math inline">p_2\geq 2</span>. Furthermore
+there exists an unlocked pattern in <span
+class="math inline">w_*</span>. If for all windows the pattern is free,
+then <span class="math inline">p_{k_0+3}\geq p_{k_0} +1</span>.
+Otherwise, for some <span class="math inline">w_*</span> an unlocked
+pattern <span class="math inline">P</span> must trap one of the boundary
+forms <span class="math inline">*\underline{\quad}01</span> or <span
+class="math inline">*\underline{\quad}10</span> by the remarks
+above.</p>
+<p>Now extend the window one digit to the left and then start extending
+it by pairs of digits to the right only; at each step either the
+extended pattern becomes free or it keeps trapping the same form as
+before: it cannot end on a locked pattern because then the transition
+would be forced in the extended pattern, and thus also in the original
+(recall that <span class="math inline">P</span> is unlocked but not
+free). It also cannot switch between the two possible forms because that
+would lead to a <span class="math inline">00</span> or <span
+class="math inline">11</span> pair; these forms determine uniquely the
+carry to the left and since the leftmost extended digit is also trapped,
+the enclosed string (and thus the original) has a unique transition
+contradicting unlockedness.</p>
+<p>Thus we end up with the following situation: after <span
+class="math inline">l</span> extensions, we get a pattern of the form
+<span class="math display">*P0101\cdots 01 \mbox{ }\textrm{ or }\mbox{
+}*P10\cdots
+  10.</span> In both cases, after the transition we end up with a
+pattern that contains the pattern <span
+class="math inline">0\overline{1}^{2l-1}</span> (i.e. there are at least
+<span class="math inline">2l-1</span> digits equal to <span
+class="math inline">1</span> followed by an inevitable leading <span
+class="math inline">0</span>) or the pattern <span
+class="math inline">1\overline{0}^{2l-1}</span>. We claim that the
+leading zero/one persistently lies within the window <span
+class="math inline">w_*</span>, that is <span
+class="math inline">P</span> does not always transit to the pattern
+<span class="math inline">\overline{1}^k</span> or always to <span
+class="math inline">\overline{0}^k</span>. This is because <span
+class="math inline">P</span> is unlocked in the first place, so it
+cannot determine uniquely the transition. To conclude, starting with an
+arbitrary window <span class="math inline">w_*</span> of length <span
+class="math inline">k_0</span> without a free pattern, we found <span
+class="math inline">l-1</span> distinct persistent patterns (by lemma <a
+href="#zeroone" data-reference-type="ref"
+data-reference="zeroone">9</a>) in the extension <span
+class="math inline">*w_***\cdots**</span> of length <span
+class="math inline">1+k_0+2l</span>.</p>
+<p>Now suppose every string of length <span
+class="math inline">k_0</span> has at least <span
+class="math inline">l_0&gt;1</span> distinct persistent strings.
+Applying the above to <span class="math inline">l=l_0+2</span> we have
+shown that every string of length <span
+class="math inline">k_1=k_0+2l_0+5</span> has at least <span
+class="math inline">l_1=l_0+1</span> distinct persistent strings (either
+by at least one of the <span class="math inline">l_0</span> strings
+freely extending to two distinct ones before we reach <span
+class="math inline">k_0+2l_0+5</span>, or by the trapped string
+argument), and we can iterate this procedure to show that <span
+class="math inline">k_n
+  = k_{n-1}+2l_{n-1}+5</span> length strings have at least <span
+class="math inline">l_n = l_{n-1}+1</span> distinct strings. Setting
+<span class="math inline">k_0=2</span>, <span
+class="math inline">l_0=2</span>, and solving the congruence, we see
+that <span class="math inline">p_{(n+2)^2-2}\geq n+2</span>. To
+simplify, by monotonicity <span class="math inline">p_{(n+2)^2}\geq
+n+2</span> so <span class="math inline">p_{n^2}\geq n</span> for <span
+class="math inline">n\geq 2</span>. Further interpolating, we get the
+result. ◻</p>
+</div>
+<p>As a corollary of this proposition (applied to <span
+class="math inline">w_n(1,r)</span> for arbitrary <span
+class="math inline">r</span>) we get the infinitude of limit points in
+the quantitative manner claimed in Theorem <a href="#main_simple"
+data-reference-type="ref" data-reference="main_simple">1</a>.</p>
+</body>
+</html>
